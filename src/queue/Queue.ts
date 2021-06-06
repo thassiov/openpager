@@ -1,4 +1,4 @@
-import { IQueue, IQueueService, QueueDefaultProps } from '../definitions';
+import { IQueue, IQueueService, QueueDefaultProps, QueueItem } from '../definitions';
 import {QueueHasNoName} from '../errors/QueueHasNoName';
 import { Local as LocalQueue } from '../services/local';
 
@@ -12,13 +12,11 @@ export class Queue implements IQueue {
     this.queue = new LocalQueue(this.queueProps);
   }
 
-  public enqueue(): void {
-    console.log('enqueue');
-    this.queue.enqueue();
+  public enqueue(item: QueueItem): void {
+    this.queue.enqueue(item);
   }
 
-  public dequeue(): void {
-    console.log('dequeue');
-    this.queue.dequeue();
+  public dequeue(): QueueItem {
+    return this.queue.dequeue();
   }
 }

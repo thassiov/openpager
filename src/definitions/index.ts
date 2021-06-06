@@ -1,9 +1,10 @@
-import { IQueue, QueueDefaultProps } from '../definitions/IQueue';
+import { IQueue, QueueDefaultProps, QueueItem } from '../definitions/IQueue';
 import { IQueueService } from '../definitions/IQueueService';
 
 export {
   IQueue,
   QueueDefaultProps,
-  IQueueService
+  QueueItem,
+  IQueueService,
 };
 

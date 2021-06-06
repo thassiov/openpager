@@ -11,4 +11,18 @@ describe('Queue', () => {
       expect(() => new Queue({ name: 'the-queue' })).not.toThrow();
     });
   });
+
+	describe('enqueue items', () => {
+		it('adds three items in the queue', () => {
+			const q = new Queue({ name: 'test-queue' });
+
+			q.enqueue({ n: '1' });
+			q.enqueue({ n: '2' });
+			q.enqueue({ n: '3' });
+
+			expect(q.dequeue()).toEqual({ n: '1' });
+			expect(q.dequeue()).toEqual({ n: '2' });
+			expect(q.dequeue()).toEqual({ n: '3' });
+		});
+	});
 });
