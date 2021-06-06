@@ -1,5 +1,5 @@
 import { QueueHasNoName } from "../src/errors/QueueHasNoName";
-import Queue from "../src/queue";
+import { Queue } from "../src/core";
 
 describe('Queue', () => {
   describe('new instance of local queue', () => {
