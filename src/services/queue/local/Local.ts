@@ -1,7 +1,7 @@
 import Denque from 'denque';
 
-import logger from "../../utils/logger";
-import { IQueueService, QueueDefaultProps, QueueItem } from "../../definitions";
+import logger from "../../../utils/logger";
+import { IQueueService, QueueDefaultProps, QueueItem } from "../../../definitions";
 
 export default class Local implements IQueueService {
   /* the queue's name */
