@@ -1,6 +1,6 @@
 import { IQueue, IQueueService, QueueDefaultProps, QueueItem } from '../definitions';
 import {QueueHasNoName} from '../errors/QueueHasNoName';
-import { Local as LocalQueue } from '../services/local';
+import { Local as LocalQueue } from '../services/queue/local';
 
 export class Queue implements IQueue {
   private queue: IQueueService;
