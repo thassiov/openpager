@@ -9,7 +9,7 @@ import { QueueDefaultProps } from './definitions';
     name: 'the-queue',
   };
 
-  const controllers = Controllers(new QueueService(queueProps));
+  const controllers = Controllers(new QueueService('redis', queueProps));
   const api = restApi(controllers);
   api.startServer();
 })();
