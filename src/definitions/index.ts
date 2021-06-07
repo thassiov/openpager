@@ -1,10 +1,14 @@
 import { IQueue, QueueDefaultProps, QueueItem } from '../definitions/IQueue';
-import { IQueueService } from '../definitions/IQueueService';
+import { IQueueRepository } from './IQueueRepository';
+import { IEnqueueController, IDequeueController, IControllers } from './IController';
 
 export {
   IQueue,
   QueueDefaultProps,
   QueueItem,
-  IQueueService,
+  IQueueRepository,
+  IEnqueueController,
+  IDequeueController,
+  IControllers
 };
 

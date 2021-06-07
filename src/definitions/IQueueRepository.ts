@@ -1,3 +1,3 @@
 import { IQueue } from "./IQueue";
 
-export interface IQueueService extends IQueue {};
+export interface IQueueRepository extends IQueue {};

@@ -1,9 +1,9 @@
 import Denque from 'denque';
 
 import logger from "../../../utils/logger";
-import { IQueueService, QueueDefaultProps, QueueItem } from "../../../definitions";
+import { IQueueRepository, QueueDefaultProps, QueueItem } from "../../../definitions";
 
-export default class Local implements IQueueService {
+export default class Local implements IQueueRepository {
   /* the queue's name */
   private name: string;
 
@@ -15,12 +15,12 @@ export default class Local implements IQueueService {
     this.queue = new Denque();
   }
 
-  public enqueue(item: QueueItem): void {
+  public async enqueue(item: QueueItem): Promise<void> {
     logger.debug('enqueue', this.getQueueName());
     this.queue.unshift(item);
   }
 
-  public dequeue(): QueueItem {
+  public dequeue(): Promise<QueueItem> {
     logger.debug('dequeue', this.getQueueName());
     return this.queue.pop();
   }

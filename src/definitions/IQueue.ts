@@ -1,6 +1,6 @@
 export interface IQueue {
-  enqueue: (item: QueueItem) => void;
-  dequeue: () => QueueItem;
+  enqueue: (item: QueueItem) => Promise<void>;
+  dequeue: () => Promise<QueueItem>;
 }
 
 export interface QueueDefaultProps {
