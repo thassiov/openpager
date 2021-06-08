@@ -4,7 +4,9 @@
   "description": "It pages",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc -p tsconfig-build.json",
+    "build": "npm run compile && npm run bundle",
+    "compile": "tsc",
+    "bundle": "esbuild dist/index.js --bundle --platform=node --outfile=dist/bundle.js",
     "start": "ts-node ./src/index.ts",
     "dev": "nodemon",
     "test": "jest",
@@ -25,6 +27,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.1",
     "@types/redis": "^2.8.29",
+    "esbuild": "^0.12.7",
     "jest": "^27.0.4",
     "nodemon": "^2.0.7",
     "ts-jest": "^27.0.2",
