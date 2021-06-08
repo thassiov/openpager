@@ -4,7 +4,7 @@ import { IControllers, QueueItem } from '../definitions';
 
 import logger from '../utils/logger';
 
-function restApi({ enqueue, dequeue }: IControllers<QueueItem>) {
+function restApi({ enqueue, dequeue }: IControllers<QueueItem>, server_port: number) {
   const fastify = Fastify({ logger: true });
 
   fastify.get('/', async (_, reply) => {
@@ -35,7 +35,7 @@ function restApi({ enqueue, dequeue }: IControllers<QueueItem>) {
 
   return {
     startServer: () => {
-      fastify.listen(3000, (err, address) => {
+      fastify.listen(server_port, '0.0.0.0', (err, address) => {
         if (err) throw err
           logger.info(`Server is now listening on ${address}`);
       });
