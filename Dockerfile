@@ -1,6 +1,6 @@
-FROM node:12.18.1
+FROM node:12-alpine
 
-WORKDIR /app
+WORKDIR /app/build
 
 COPY ["package.json", "package-lock.json*", "./"]
 
@@ -10,4 +10,10 @@ COPY . .
 
 RUN npm run build
 
-CMD [ "node", "./dist/index.js" ]
+RUN cp ./dist/bundle.js ../
+
+WORKDIR /app
+
+RUN rm -rf build
+
+CMD [ "node", "./bundle.js" ]
