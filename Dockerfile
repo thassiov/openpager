@@ -13,10 +13,7 @@ RUN npm run build
 RUN cp ./dist/bundle.js ../
 
 
-FROM node:12-alpine
+FROM gcr.io/distroless/nodejs:12
 
-WORKDIR /app
-
-COPY --from=build /app/bundle.js /app
-
-CMD [ "node", "./bundle.js" ]
+COPY --from=build /app/bundle.js /
+CMD [ "bundle.js" ]
