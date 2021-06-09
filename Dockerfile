@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12-slim as build
 
 WORKDIR /app/build
 
@@ -12,8 +12,11 @@ RUN npm run build
 
 RUN cp ./dist/bundle.js ../
 
+
+FROM node:12-alpine
+
 WORKDIR /app
 
-RUN rm -rf build
+COPY --from=build /app/bundle.js /app
 
 CMD [ "node", "./bundle.js" ]
